@@ -11,7 +11,10 @@ paystack = Paystack(secret_key=paystack_secret_key)
 
 @app.route("/")
 def index():
-    return "Hello World!"
+    return jsonify({
+        "success": True,
+        "message": "Hello World!"
+    })
 
 
 @app.route("/new-transacton/", methods=["POST"])
