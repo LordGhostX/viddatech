@@ -18,7 +18,7 @@ def index():
     }), 200
 
 
-@app.route("/new-transacton/", methods=["POST"])
+@app.route("/new-transaction/", methods=["POST"])
 def new_transaction():
     reference = request.form.get("reference")
     amount = request.form.get("amount")

@@ -57,7 +57,7 @@ Says hello to the Rest API to test connectivity.
 
 ### Create Transaction
 
-POST `/new-transacton/`
+POST `/new-transaction/`
 
 Create a new transaction
 
@@ -107,7 +107,7 @@ Get all account transactions
 
 POST `/verify-transaction/`
 
-Verify a particular transacton
+Verify a particular transaction
 
 **Parameters**
 
