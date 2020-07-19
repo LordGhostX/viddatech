@@ -28,8 +28,26 @@ def new_transaction():
         }), 200
     else:
         return jsonify({
-        "success": False,
-        "message": response["message"],
+            "success": False,
+            "message": response["message"],
+        }), 400
+
+
+@app.route("/transactions/", methods=["POST"])
+def get_transactions():
+    response = Transaction.list()
+    if response["status"]:
+        return jsonify({
+            "success": True,
+            "total": response["meta"]["total"],
+            "total_volume": response["meta"]["total_volume"],
+            "message": response["message"],
+            "transactions": response["data"]
+        }), 200
+    else:
+        return jsonify({
+            "success": False,
+            "message": response["message"],
         }), 400
 
 
