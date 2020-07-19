@@ -33,7 +33,7 @@ def new_transaction():
         }), 400
 
 
-@app.route("/transactions/", methods=["POST"])
+@app.route("/transactions/")
 def get_transactions():
     response = Transaction.list()
     if response["status"]:
@@ -43,6 +43,23 @@ def get_transactions():
             "total_volume": response["meta"]["total_volume"],
             "message": response["message"],
             "transactions": response["data"]
+        }), 200
+    else:
+        return jsonify({
+            "success": False,
+            "message": response["message"],
+        }), 400
+
+
+@app.route("/verify-transaction/", methods=["POST"])
+def verify_transaction():
+    reference = request.form.get("reference")
+    response = Transaction.verify(reference=reference)
+    if response["status"]:
+        return jsonify({
+            "success": True,
+            "message": response["message"],
+            "data": response["data"]
         }), 200
     else:
         return jsonify({
