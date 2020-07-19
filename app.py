@@ -1,5 +1,6 @@
 from paystackapi.paystack import Paystack
 from paystackapi.transaction import Transaction
+from paystackapi.tcontrol import TransferControl
 from flask import *
 
 app = Flask(__name__)
@@ -66,6 +67,23 @@ def verify_transaction():
             "success": False,
             "message": response["message"],
         }), 400
+
+
+@app.route("/get-balance/")
+def get_balance():
+    response = TransferControl.check_balance()
+    if response["status"]:
+        return jsonify({
+            "success": True,
+            "message": response["message"],
+            "balance": response["data"][0]["balance"]
+        }), 200
+    else:
+        return jsonify({
+            "success": True,
+            "message": response["message"]
+        }), 400
+    return response
 
 
 if __name__ == "__main__":
