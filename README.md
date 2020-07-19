@@ -42,7 +42,7 @@ Sample Payload below:
 
 ### Say hello
 
-GET /
+GET `/`
 
 Says hello to the Rest API to test connectivity.
 
@@ -57,7 +57,7 @@ Says hello to the Rest API to test connectivity.
 
 ### Create Transaction
 
-POST /new-transacton/
+POST `/new-transacton/`
 
 Create a new transaction
 
@@ -82,7 +82,7 @@ Create a new transaction
 
 ### Get Transactions
 
-GET /transactions/
+GET `/transactions/`
 
 Get all account transactions
 
@@ -105,7 +105,7 @@ Get all account transactions
 
 ### Verify Transaction
 
-POST /verify-transaction/
+POST `/verify-transaction/`
 
 Verify a particular transacton
 
@@ -127,7 +127,7 @@ Verify a particular transacton
 
 ### Get Balance
 
-GET /get-balance/
+GET `/get-balance/`
 
 Get Account Balance
 
@@ -148,7 +148,7 @@ Get Account Balance
 
 ### Get Supported Banks
 
-GET /get-banks/
+GET `/get-banks/`
 
 Get Paystack Supported Banks
 
