@@ -13,8 +13,9 @@ paystack = Paystack(secret_key=paystack_secret_key)
 def index():
     return jsonify({
         "success": True,
-        "message": "Hello World!"
-    })
+        "message": "Hello World!",
+        "docs": "https://github.com/LordGhostX/viddatech/blob/master/README.md"
+    }), 200
 
 
 @app.route("/new-transacton/", methods=["POST"])
